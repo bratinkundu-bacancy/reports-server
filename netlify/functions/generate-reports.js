@@ -135,12 +135,12 @@ exports.handler = async function(event, context) {
       ];
     return {
       statusCode: 200,
-      body: JSON.parse({departments,
+      data: {departments,
         projects,
         clients,
         employees,
         incomeData,
         incomeCategories,
-        incomeSubCategories})
+        incomeSubCategories}
     };
   };
