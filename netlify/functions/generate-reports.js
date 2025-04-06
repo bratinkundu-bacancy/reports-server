@@ -133,14 +133,19 @@ exports.handler = async function(event, context) {
           updatedAt: "2025-04-05 23:19:59.508+05:30",
         },
       ];
-    return {
-      statusCode: 200,
-      data: {departments,
-        projects,
-        clients,
-        employees,
-        incomeData,
-        incomeCategories,
-        incomeSubCategories}
-    };
+      return {
+        statusCode: 200,
+        headers: {
+          "Content-Type": "application/json", // 👈 this makes sure the response is JSON
+        },
+        body: JSON.stringify({
+          departments,
+          projects,
+          clients,
+          employees,
+          incomeData,
+          incomeCategories,
+          incomeSubCategories,
+        }),
+    }
   };
